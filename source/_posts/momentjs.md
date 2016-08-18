@@ -23,15 +23,11 @@ import moment from 'moment';
 //
 // http://momentjs.com/docs/#/displaying/format/
 
-// local      2016-08-18 20:38:53
-moment().format('YYYY-MM-DD HH:mm:ss');
-// utc        2016-08-18 12:38:53
-moment.utc().format('YYYY-MM-DD HH:mm:ss');
-// specified  2016-08-18 20:38:53
-moment().utcOffset(8).format('YYYY-MM-DD HH:mm:ss');
+moment().format('YYYY-MM-DD HH:mm:ss');               // local     2016-08-18 20:38:53
+moment.utc().format('YYYY-MM-DD HH:mm:ss');           // utc       2016-08-18 12:38:53
+moment().utcOffset(8).format('YYYY-MM-DD HH:mm:ss');  // specified 2016-08-18 20:38:53
 
-// utc 2016-04-05 00:00:00   ->   local 2016-04-05 08:00:00
-moment.utc([2016, 3, 5]).format('YYYY-MM-DD HH:mm:ss');
-// local 2016-04-05 00:00:00   ->   utc 2016-04-04 16:00:00
-moment([2016, 3, 5]).utc().format('YYYY-MM-DD HH:mm:ss');
+
+moment.utc([2016, 3, 5]).format('YYYY-MM-DD HH:mm:ss');   // utc   2016-04-05 00:00:00 -> local 2016-04-05 08:00:00
+moment([2016, 3, 5]).utc().format('YYYY-MM-DD HH:mm:ss'); // local 2016-04-05 00:00:00 -> utc   2016-04-04 16:00:00
 ```
