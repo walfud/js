@@ -1,10 +1,23 @@
 ---
-title: momentjs
+title: momentjs 看这一篇就够了
 ---
 
-```java
-import moment from 'moment';
 
+## 构造解析
+```javascript
+moment();
+moment(1270451403123);
+moment.unix(1270451403123.123);
+moment([2010, 3, 5, 15, 10, 3, 123]);
+moment({ years:'2010', months:'3', date:'5', hours:'15', minutes:'10', seconds:'3', milliseconds:'123'});  // from 2.10.7
+
+moment.utc([2016, 3, 5]).format('YYYY-MM-DD HH:mm:ss');   // utc   2016-04-05 00:00:00 -> local 2016-04-05 08:00:00
+moment([2016, 3, 5]).utc().format('YYYY-MM-DD HH:mm:ss'); // local 2016-04-05 00:00:00 -> utc   2016-04-04 16:00:00
+```
+
+
+## 格式化输出
+```javascript
 //   YYYY/YY: year
 //     MM/M : month, [1, 12]
 //     DD/D : day,   [1, 31]
@@ -26,15 +39,19 @@ moment().format('YYYY-MM-DD HH:mm:ss');               // local     2016-08-18 20
 moment.utc().format('YYYY-MM-DD HH:mm:ss');           // utc       2016-08-18 12:38:53
 moment().utcOffset(8).format('YYYY-MM-DD HH:mm:ss');  // specified 2016-08-18 20:38:53
 
+                            //   format                   en                              zh-cn
+moment().format('LT');      //    `LT`                  11:06 AM                       上午11点06分
+moment().format('LTS');     //    `LTS                11:06:37 AM                     上午11点6分37秒
+moment().format('L');       //    `L/l`                08/19/2016                        2016-08-19
+moment().format('LL');      //   `LL/ll`             August 19, 2016                    2016年8月19日
+moment().format('LLL');     //  `LLL/lll`        August 19, 2016 11:06 AM          2016年8月19日上午11点06分
+moment().format('LLLL');    // `LLLL/llll`    Friday, August 19, 2016 11:06 AM   2016年8月19日星期五上午11点06分
+```
 
-moment.utc([2016, 3, 5]).format('YYYY-MM-DD HH:mm:ss');   // utc   2016-04-05 00:00:00 -> local 2016-04-05 08:00:00
-moment([2016, 3, 5]).utc().format('YYYY-MM-DD HH:mm:ss'); // local 2016-04-05 00:00:00 -> utc   2016-04-04 16:00:00
 
-// Set / Get
-moment(1270451403123);
-moment.unix(1270451403123.123);
-moment([2010, 3, 5, 15, 10, 3, 123]);
-moment({ years:'2010', months:'3', date:'5', hours:'15', minutes:'10', seconds:'3', milliseconds:'123'});  // from 2.10.7
+## Set / Get 方法
+```javascript
+// Set
 moment().set({'year': 2013, 'month': 3});
 moment().set('year', 2013);
 moment().set('month', 3);  // April
@@ -44,6 +61,7 @@ moment().set('minute', 20);
 moment().set('second', 30);
 moment().set('millisecond', 123);
 
+// Get
 moment().valueOf();
 moment().unix();
 moment().get('year');
@@ -53,12 +71,29 @@ moment().get('hour');
 moment().get('minute');
 moment().get('second');
 moment().get('millisecond');
+moment().toObject()  // {
+                     //     years: 2015
+                     //     months: 6
+                     //     date: 26,
+                     //     hours: 1,
+                     //     minutes: 53,
+                     //     seconds: 14,
+                     //     milliseconds: 600
+                     // }
+```
 
-// Operation
+
+## 日期运算
+```javascript
 moment().add(1, 'day');
 moment().subtract(1, 'day');
+moment([2008, 6]).diff(moment([2007, 0]), 'years');       // 1
+moment([2008, 6]).diff(moment([2007, 0]), 'years', true); // 1.5
+```
 
-// MISC.
+
+## 其他
+```javascript
 moment().clone();
 
 moment().isBefore(moment(1270451403123));
@@ -68,4 +103,11 @@ moment().isSameOrAfter(moment(1270451403123));
 moment().isBetween(moment(1270451403123), moment(2270451403123));
 
 moment().isLeapYear();
+```
+
+
+## 时区
+```javascript
+moment().locale('zh-cn');   // local
+moment.locale('zh-cn');     // global
 ```
