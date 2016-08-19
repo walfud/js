@@ -43,12 +43,12 @@ moment.utc().format('YYYY-MM-DD HH:mm:ss');           // utc       2016-08-18 12
 moment().utcOffset(8).format('YYYY-MM-DD HH:mm:ss');  // specified 2016-08-18 20:38:53
 
                             //   format                   en                              zh-cn
-moment().format('LT');      //    `LT`                  11:06 AM                       上午11点06分
-moment().format('LTS');     //    `LTS                11:06:37 AM                     上午11点6分37秒
-moment().format('L');       //    `L/l`                08/19/2016                        2016-08-19
-moment().format('LL');      //   `LL/ll`             August 19, 2016                    2016年8月19日
-moment().format('LLL');     //  `LLL/lll`        August 19, 2016 11:06 AM          2016年8月19日上午11点06分
-moment().format('LLLL');    // `LLLL/llll`    Friday, August 19, 2016 11:06 AM   2016年8月19日星期五上午11点06分
+moment().format('LT');      //     LT                  11:06 AM                       上午11点06分
+moment().format('LTS');     //     LTS                11:06:37 AM                     上午11点6分37秒
+moment().format('L');       //     L/l                08/19/2016                        2016-08-19
+moment().format('LL');      //    LL/ll             August 19, 2016                    2016年8月19日
+moment().format('LLL');     //   LLL/lll        August 19, 2016 11:06 AM          2016年8月19日上午11点06分
+moment().format('LLLL');    //  LLLL/llll    Friday, August 19, 2016 11:06 AM   2016年8月19日星期五上午11点06分
 ```
 
 
