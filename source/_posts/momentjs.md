@@ -5,11 +5,14 @@ title: momentjs 看这一篇就够了
 
 ## 构造解析
 ```javascript
-moment();
-moment(1270451403123);
-moment.unix(1270451403123.123);
-moment([2010, 3, 5, 15, 10, 3, 123]);
-moment({ years:'2010', months:'3', date:'5', hours:'15', minutes:'10', seconds:'3', milliseconds:'123'});  // from 2.10.7
+moment();                               // 以当前时间构造
+moment(1270451403123);                  // timestamp 构造 (毫秒)
+moment.unix(1270451403123.123);         // timestamp 构造 (秒)
+moment([2010, 3, 5, 15, 10, 3, 123]);   // [年, 月, 日, 时, 分, 秒, 毫秒]
+moment({
+    years: '2010', months: '3', days: '5',
+    hours: '15', minutes: '10', seconds: '3', milliseconds: '123'
+});
 
 moment.utc([2016, 3, 5]).format('YYYY-MM-DD HH:mm:ss');   // utc   2016-04-05 00:00:00 -> local 2016-04-05 08:00:00
 moment([2016, 3, 5]).utc().format('YYYY-MM-DD HH:mm:ss'); // local 2016-04-05 00:00:00 -> utc   2016-04-04 16:00:00
