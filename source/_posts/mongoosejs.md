@@ -1,6 +1,8 @@
 ---
 title: mongoosejs 看这一篇就够了
-tag: js, 看这一篇就够了
+tag:
+  - js
+  - 看这一篇就够了
 ---
 
 [Schema](http://mongoosejs.com/docs/schematypes.html)
