@@ -74,3 +74,14 @@ var MySchema = new Schema({
 
 })
 ```
+特别注意: 对于 `Date/Mixed` 类型, mongoose 无法追踪值得变更, 因此需要手动标记:
+```javascript
+var Assignment = mongoose.model('Assignment', { dueDate: Date });
+Assignment.findOne(function (err, doc) {
+  doc.dueDate.setMonth(3);
+  doc.save(callback); // THIS DOES NOT SAVE YOUR CHANGE
+
+  doc.markModified('dueDate');
+  doc.save(callback); // works
+})
+```
