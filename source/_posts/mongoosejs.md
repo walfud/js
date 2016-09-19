@@ -5,7 +5,62 @@ tag:
   - 看这一篇就够了
 ---
 
-# [Schema](http://mongoosejs.com/docs/schematypes.html)
+### 快速入门
+`npm install mongoose`
+```javascript
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/test');
+
+const Cat = mongoose.model('Cat', { name: String });
+
+// Model#save([options], [options.safe], [options.validateBeforeSave], [fn])
+const kitty = new Cat(
+    { name: 'walfud' }
+);
+kitty.save(function (err) {
+    ...
+});
+
+// Query#find([criteria], [callback])
+Cat.find(
+    {},
+    (err, doc) => {
+    ...
+});
+// Query#findOne([callback])   --- 返回第一条 doc
+// Query#findOne([criteria], [projection], [callback])
+Cat.findOne((err, doc) => {
+    ...
+});
+
+// Document#update(doc, options, callback)
+Cat.update(
+    { name: 'duflaw' },
+    { w: 1 },
+    (err, doc) => {
+    ...
+});
+// Query#update([criteria], [doc], [options], [callback])
+Cat.update(
+    { name: 'walfud' },
+    { name: 'duflaw' },
+    (err, doc) => {
+    ...
+});
+
+// Model#remove([fn])
+kitty.remove((err, doc) => {
+    ...
+});
+// Query#remove([criteria], [callback])
+Cat.remove(
+    { name: 'walfud' },
+    (err, doc) => {
+    ...
+});
+```
+
+### [Schema](http://mongoosejs.com/docs/schematypes.html)
 
 ```javascript
 const MySchema = new Schema({
@@ -83,7 +138,7 @@ const MySchema = new Schema({
 
 ```javascript
 const Assignment = mongoose.model('Assignment', { dueDate: Date });
-Assignment.findOne(function (err, doc) {
+Assignment.findOne((err, doc) => {
     doc.dueDate.setMonth(3);
     doc.save(callback); // THIS DOES NOT SAVE YOUR CHANGE
 
@@ -186,7 +241,7 @@ Middleware 分为两种:
 
 ```javascript
 // Pre
-var schema = new Schema(..);
+const schema = new Schema(..);
 schema.pre('save', function(next) {
     // do stuff
     next();
