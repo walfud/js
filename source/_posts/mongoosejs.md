@@ -7,7 +7,7 @@ tag:
 
 ### 快速入门
 `npm install mongoose`
-```javascript
+```js
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/test');
 
@@ -62,7 +62,7 @@ Cat.remove(
 
 ### [Schema](http://mongoosejs.com/docs/schematypes.html)
 
-```javascript
+```js
 const MySchema = new Schema({
 
     // 支持的类型
@@ -136,7 +136,7 @@ const MySchema = new Schema({
 
 特别注意: 对于 `Date/Mixed` 类型, mongoose 无法追踪值得变更, 因此需要手动标记:
 
-```javascript
+```js
 const Assignment = mongoose.model('Assignment', { dueDate: Date });
 Assignment.findOne((err, doc) => {
     doc.dueDate.setMonth(3);
@@ -149,7 +149,7 @@ Assignment.findOne((err, doc) => {
 
 # [Model](http://mongoosejs.com/docs/models.html)
 
-```javascript
+```js
 const Tank = mongoose.model('Tank', yourSchema);
 
 const small = new Tank({ size: 'small' });
@@ -170,7 +170,7 @@ Tank.create({ size: 'small' }, function (err, small) {
 
 # [CRUD](http://mongoosejs.com/docs/queries.html)
 
-```javascript
+```js
 const Person = mongoose.model('Person', yourSchema);
 
 // find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
@@ -239,7 +239,7 @@ Middleware 分为两种:
   - insertMany
   - update
 
-```javascript
+```js
 // Pre
 const schema = new Schema(..);
 schema.pre('save', function(next) {
@@ -254,7 +254,7 @@ schema.post('save', function(doc, next) {
 ```
 
 ### [Plugin](http://mongoosejs.com/docs/plugins.html)
-```javascript
+```js
 // lastMod.js
 module.exports = function lastModifiedPlugin(schema, options) {
     schema.add({
