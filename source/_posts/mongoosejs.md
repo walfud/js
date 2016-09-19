@@ -293,4 +293,5 @@ const Player = mongoose.model('Player', playerSchema);
 
 
 ### refs:
-[Mongodb Reference Cards](http://info-mongodb-com.s3.amazonaws.com/ReferenceCards15-PDF.pdf)
+* [Mongodb Reference Cards](http://info-mongodb-com.s3.amazonaws.com/ReferenceCards15-PDF.pdf)
+* [Mongoosejs](http://mongoosejs.com/index.html)
