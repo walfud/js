@@ -5,7 +5,8 @@ tag:
   - 看这一篇就够了
 ---
 
-[Schema](http://mongoosejs.com/docs/schematypes.html)
+# [Schema](http://mongoosejs.com/docs/schematypes.html)
+
 ```javascript
 const MySchema = new Schema({
 
@@ -75,9 +76,11 @@ const MySchema = new Schema({
         unique: true, // 如果指定了 `unique: true`, 则默认 `index: true`, 因此可以不指定 `index`.
     }
 
-})
+});
 ```
+
 特别注意: 对于 `Date/Mixed` 类型, mongoose 无法追踪值得变更, 因此需要手动标记:
+
 ```javascript
 const Assignment = mongoose.model('Assignment', { dueDate: Date });
 Assignment.findOne(function (err, doc) {
@@ -86,5 +89,115 @@ Assignment.findOne(function (err, doc) {
 
     doc.markModified('dueDate');
     doc.save(callback); // works
-})
+});
 ```
+
+# [Model](http://mongoosejs.com/docs/models.html)
+
+```javascript
+const Tank = mongoose.model('Tank', yourSchema);
+
+const small = new Tank({ size: 'small' });
+small.save(function (err) {
+    if (err) return handleError(err);
+    // saved!
+});
+
+// or
+
+Tank.create({ size: 'small' }, function (err, small) {
+    if (err) return handleError(err);
+    // saved!
+});
+```
+
+注意事项: `model` 方法会复制 `schema` 对象, 因此, 一定要在调用 `.model()` 之前设置好 `schema` 对象!
+
+# [CRUD](http://mongoosejs.com/docs/queries.html)
+
+```javascript
+const Person = mongoose.model('Person', yourSchema);
+
+// find each person with a last name matching 'Ghost', selecting the `name` and `occupation` fields
+Person.findOne({
+        'name.last': 'Ghost'  // criteria, 查询条件, 与 mongo shell 一致
+    },
+    'name occupation',        // projection, 选择返回的列
+    function(err, person) {   // callback
+        if (err) return handleError(err);
+        console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
+    }
+);
+
+// or
+
+// find each person with a last name matching 'Ghost'
+const query = Person.findOne({
+    'name.last': 'Ghost'
+});
+
+// selecting the `name` and `occupation` fields
+query.select('name occupation');
+
+// execute the query at a later time
+query.exec(function(err, person) {
+    if (err) return handleError(err);
+    console.log('%s %s is a %s.', person.name.first, person.name.last, person.occupation) // Space Ghost is a talk show host.
+});
+
+// or 使用 cursor 进行 stream query
+
+const cursor = Person.find({
+    occupation: /host/
+}).cursor();
+cursor.on('data', function(doc) {
+    // Called once for every document
+});
+cursor.on('close', function() {
+    // Called when done
+});
+```
+
+method  | return
+------- | --------------------------
+find    | [{}, {}, ...], document 列表
+findOne | {}, 某个 document
+update  | Number, 影响的行数
+count   | Number, 行数
+
+其中, 'criteria(查询条件)' 与 mongo shell 一致, 参考 [Operators](https://docs.mongodb.com/manual/reference/operator/).
+
+### [Middleware(Hook)](http://mongoosejs.com/docs/middleware.html)
+Middleware 分为两种:
+* Document Middleware: `this` 引用是被更新的 document
+  - init
+  - validate
+  - save
+  - remove
+
+* Query Middleware: `this` 引用是 query 对象
+  - count
+  - find
+  - findOne
+  - findOneAndRemove
+  - findOneAndUpdate
+  - insertMany
+  - update
+
+```javascript
+// Pre
+var schema = new Schema(..);
+schema.pre('save', function(next) {
+    // do stuff
+    next();
+});
+
+schema.post('save', function(doc, next) {
+    // do stuff
+    next();
+});
+```
+
+
+### refs:
+[Mongodb Reference Cards](http://info-mongodb-com.s3.amazonaws.com/ReferenceCards15-PDF.pdf)
