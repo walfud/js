@@ -34,7 +34,7 @@ Cat.findOne((err, doc) => {
 });
 
 // Document#update(doc, options, callback)
-Cat.update(
+kitty.update(
     { name: 'duflaw' },
     { w: 1 },
     (err, doc) => {
