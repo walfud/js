@@ -198,6 +198,44 @@ schema.post('save', function(doc, next) {
 });
 ```
 
+### [Plugin](http://mongoosejs.com/docs/plugins.html)
+```javascript
+// lastMod.js
+module.exports = function lastModifiedPlugin(schema, options) {
+    schema.add({
+        lastMod: Date
+    });
+
+    schema.pre('save', function(next) {
+        this.lastMod = new Date
+        next()
+    });
+}
+
+// game-schema.js
+const lastMod = require('./lastMod');
+const Game = new Schema({...
+});
+Game.plugin(lastMod);
+
+// player-schema.js
+const lastMod = require('./lastMod');
+const Player = new Schema({...
+});
+Player.plugin(lastMod);
+
+// 也可以一次性对所有 model 设置 plugin
+
+const mongoose = require('mongoose');
+mongoose.plugin(require('./lastMod'));
+
+const gameSchema = new Schema({ ... });
+const playerSchema = new Schema({ ... });
+// `lastModifiedPlugin` gets attached to both schemas
+const Game = mongoose.model('Game', gameSchema);
+const Player = mongoose.model('Player', playerSchema);
+```
+
 
 ### refs:
 [Mongodb Reference Cards](http://info-mongodb-com.s3.amazonaws.com/ReferenceCards15-PDF.pdf)
