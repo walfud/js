@@ -3,6 +3,9 @@ title: books
 date: 2016-08-11 14:09:38
 ---
 
+#### 你所不知道的 JavaScript 上卷   Kyle Simpson   2016/9 - 2016/9/23
+一本 js 的好书, 理解作用域, this 绑定, 原型链, 以及 ES6 中 class 语法糖的优点与缺点.
+
 #### 疯狂 html5/css3/javascript 讲义   李刚   2016/7/31 - 2016/8/16
 一般简单易懂的入门书. 能够简单了解前端的基础技术, 如 html 基础, css 基础, web/local storage 等.
 总体来说, 对于外行入门作为或者一个了解还是有帮助的.
