@@ -1,9 +1,11 @@
 ---
-title: js prototype
+title: 彻底搞懂 js prototype
 tag:
   - js
+  - 彻底搞懂
 ---
 
+本文不是基础教程, 如果对原型的基础概念还不理解, 请先看看 ref 中的链接.
 
 ###### 基础概念
 先来看看基础概念:
