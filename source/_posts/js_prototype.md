@@ -1,5 +1,5 @@
 ---
-title: js 精华
+title: js prototype
 tag:
   - js
 ---
