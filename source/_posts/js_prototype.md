@@ -4,21 +4,8 @@ tag:
   - js
 ---
 
-### 类型
-* 值类型: 用 `typeof` 判断
-  - undefined
-  - null  (`typeof` 返回是 object. 这是一个被大家接受的 bug)
-  - number
-  - string
-  - boolean
-* 引用(对象) 类型: 用 `instanceOf` 判断
-  * 普通对象
-  * 函数对象
-  * 数组对象
 
-
-### 原型
-###### 内建对象原型链
+###### 基础概念
 先来看看基础概念:
 * 普通对象
   - `__proto__` 指向该对象的原型 (后面有解释), 通常是一个 'Object 原型对象' (后图中的 A)
@@ -32,7 +19,7 @@ tag:
 
 有了上述基础, 我们来看一下 js 几个引擎内建对象的关系:
 
-![](/images/js/prototype.png)
+![](/images/js_prototype/prototype.png)
 
 _(<font color="#fa1716">红色是普通对象</font>, <font color="#264ccf">蓝色是函数对象</font>)_
 
@@ -74,7 +61,7 @@ C 和 D 依然是引擎的内建对象, 不过这两个是内建的函数对象:
 
 ### 是时候捋一捋脉络了. 看一下完整的 js 原型图:
 
-![](/images/js/js.png)
+![](/images/js_prototype/js.png)
 
 从上往下看.
 ###### 引擎内建级对象
