@@ -85,14 +85,14 @@ C 和 D 依然是引擎的内建对象, 不过这两个是内建的函数对象:
   再往下看, 这一层级是我们常见的 js API. 以 `Object`(图中 _this is the built-in \`Object\` function_ 所代表的对象) 为例. `Object` 自身是一个对象, 因此其 `__proto__` 指向 `Op`. 但是 `Function` 又是个函数, 所以它将具有 `prototype` 属性. 然而它的功能是创建新的 **普通对象**, 所以其 `prototype` 指向了 `Op`, 这代表凡是 `const myObj = new Object()` 创建的对象, 那么 `myObj.__proto__ === Op`(因为 `new` 方法会将 `Object.prototype` 赋值给新创建的对象).
 
 ###### 用户级对象
-  看图中最后一行的 custom object 和 custom function object. 这些都是用户自定义对象, 也就是我们日常代码中的各种 `{ ... }`.
+  看图中最后一行的 custom object 和 custom function object. 这些都是用户自定义对象, 也就是我们日常代码中的各种 `const myObj = { ... }`.
 
   默认情况下, 引擎在我们创建对象时帮我们把新建 **普通对象** 的 `__proto__` 设置为 `Op`,  **函数对象** 的 `__proto__` 设置为 `Fp`. 因此我们自定义的对象才能够调用 `getOwnProperty / call` 等方法.
 
 
 ### MISC.
-###### 判断自定义对象原型
-沿着A的__proto__这条线来找，同时沿着B的prototype这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回true。如果找到终点还未重合，则返回false
+###### 判断自定义对象原型 (A instanceOf B)
+沿着 A 的 `__proto__` 这条线来找，同时沿着 B 的 `prototype` 这条线来找，如果两条线能找到同一个引用，即同一个对象，那么就返回 `true`。如果找到终点还未重合，则返回 `false`.
 
 ### refs:
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
