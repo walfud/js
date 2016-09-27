@@ -85,4 +85,4 @@ C 和 D 依然是引擎的内建对象, 不过这两个是内建的函数对象:
 
 ### refs:
 * [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
-* [深入理解javascript原型和闭包（完结）](http://www.cnblogs.com/wangfupeng1988/p/3979533.html)
+* [深入理解javascript原型和闭包（完结）](http://www.cnblogs.com/wangfupeng1988/p/3977924.html)
