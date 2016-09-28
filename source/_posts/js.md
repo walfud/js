@@ -1,5 +1,5 @@
 ---
-title: js
+title: js 精华
 tag:
   - js
 ---
