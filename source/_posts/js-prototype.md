@@ -6,8 +6,6 @@ tag:
 date: 2016-09-23 00:00:00
 ---
 
-# 本文已转移到 [http://js.walfud.com/js-prototype/](http://js.walfud.com/js-prototype/), 以后此地址不再更新, 请访问上述连接.
-
 本文不是基础教程, 如果对原型的基础概念还不理解, 请先看看 ref 中的链接.
 
 ###### 基础概念
