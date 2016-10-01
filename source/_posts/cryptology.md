@@ -52,4 +52,4 @@ date: 2016/9/30
 ### 解决的问题
 
 ### 常见算法
-* [RSA](https://en.wikipedia.org/wiki/RSA_\(cryptosystem\))
+* RSA
