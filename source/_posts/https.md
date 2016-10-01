@@ -6,4 +6,4 @@ tag:
 date: 2016/9/30
 ---
 
-todo:
+https 是安全的 http.
