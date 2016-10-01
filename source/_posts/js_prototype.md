@@ -22,7 +22,7 @@ date: 2016-09-23 00:00:00
 
 有了上述基础, 我们来看一下 js 几个引擎内建对象的关系:
 
-![](/images/js_prototype/prototype.png)
+[![](/images/js_prototype/prototype.png)](http://js.walfud.com/images/js_prototype/js.png)
 
 _(<font color="#fa1716">红色是普通对象</font>, <font color="#264ccf">蓝色是函数对象</font>)_
 
