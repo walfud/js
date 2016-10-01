@@ -22,7 +22,7 @@ date: 2016-09-23 00:00:00
 
 有了上述基础, 我们来看一下 js 几个引擎内建对象的关系:
 
-[![](/images/js_prototype/prototype.png)](http://js.walfud.com/images/js_prototype/js.png)
+[![](/images/js_prototype/prototype.png)](http://js.walfud.com/images/js_prototype/prototype.png)
 
 _(<font color="#fa1716">红色是普通对象</font>, <font color="#264ccf">蓝色是函数对象</font>)_
 
@@ -64,7 +64,7 @@ C 和 D 依然是引擎的内建对象, 不过这两个是内建的函数对象:
 
 ### 是时候捋一捋脉络了. 看一下完整的 js 原型图:
 
-![](/images/js_prototype/js.png)
+[![](/images/js_prototype/js.png)](http://js.walfud.com/images/js_prototype/js.png)
 
 从上往下看.
 ###### 引擎内建级对象
