@@ -1,5 +1,5 @@
 ---
-title: let's https --- 基于 Let's Encript 实现 https (ubuntu 16.04 + nginx)
+title: let's https --- 基于 Let's Encrypt 实现 https (ubuntu 16.04 + nginx)
 tag:
   - https
 date: 2016/9/30
@@ -26,18 +26,18 @@ http 是不安全的, 源于:
 当下有很多证书机构:
 * 做证书起家的 [VeriSign](http://www.verisign.com/)
 * 老牌的 [StartSsl](https://www.startssl.com/)
-* https 的新星: [Let's Encript](https://letsencrypt.org/)
+* https 的新星: [Let's Encrypt](https://letsencrypt.org/)
 * 还有国内的 [沃通](https://www.wosign.com/)
 
-经过一番调研和对比, 直接选择 Let's Encript 就好了. 免费, 快速, 方便自动化续签, 未来支持潜力更好...
+经过一番调研和对比, 直接选择 Let's Encrypt 就好了. 免费, 快速, 方便自动化续签, 未来支持潜力更好...
 
-### Let's Encript 工作流程
+### Let's Encrypt 工作流程
 假设我们有:
 * 一台装有 nginx 的 vps
 * 一个域名(walfud.com), 这个域名已经指向了上述 vps
 
 ###### 申请证书
-想要使用 https, 我们需要向 Let's Encript 证明你拥有该域名的控制权. 传统的证书申请机构是使用邮箱作为验证, 即: 发送一封邮件到你要签名的域名让你去确认. 而 Let's Encript 使用一种更加先进的方法, 叫做 [ACME](https://ietf-wg-acme.github.io/acme/). 这种方法的大致思路就是: 在你域名所指向的服务器上写入某些随机内容的文件, 如果发起 ACME 的服务器能够读成功, 就认为你拥有该域名的控制权. ACME 对比传统的邮件方式, 可以免去人工打开邮箱等过程, 从而实现自动化续签.
+想要使用 https, 我们需要向 Let's Encrypt 证明你拥有该域名的控制权. 传统的证书申请机构是使用邮箱作为验证, 即: 发送一封邮件到你要签名的域名让你去确认. 而 Let's Encrypt 使用一种更加先进的方法, 叫做 [ACME](https://ietf-wg-acme.github.io/acme/). 这种方法的大致思路就是: 在你域名所指向的服务器上写入某些随机内容的文件, 如果发起 ACME 的服务器能够读成功, 就认为你拥有该域名的控制权. ACME 对比传统的邮件方式, 可以免去人工打开邮箱等过程, 从而实现自动化续签.
 
 1. 在你的 vps 上下载官方推荐的工具: [certbot](https://certbot.eff.org/). 这里我们选择 _Nginx_ 和 _Ubuntu 16.04 (xenial)_. 如图
 ![](/images/https_nginx/certbot.png)
@@ -166,9 +166,9 @@ A: 是针对域名签发的. 我曾经在 123.206.49.60 这台机器上申请了
 
 [在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站](http://www.appinn.com/use-letsencrypt-with-nginx/)
 
-[Let's Encript Getting Started](https://letsencrypt.org/getting-started/)
+[Let's Encrypt Getting Started](https://letsencrypt.org/getting-started/)
 
-[Let's Encript How It Works](https://letsencrypt.org/how-it-works/)
+[Let's Encrypt How It Works](https://letsencrypt.org/how-it-works/)
 
 [certbot Retrive & Renew Certificates Automatically](https://certbot.eff.org/#ubuntuxenial-nginx)
 
