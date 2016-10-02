@@ -1,12 +1,12 @@
 ---
-title: 彻底搞懂 js prototype (本文已转移到 http://js.walfud.com/js-prototype/)
+title: 彻底搞懂 js prototype (本文已转移到 http://js.walfud.com/js-proto/)
 tag:
   - js
   - 彻底搞懂
 date: 2016-01-01 00:00:00
 ---
 
-# 本文已转移到 [http://js.walfud.com/js-prototype/](http://js.walfud.com/js-prototype/), 以后此地址不再更新, 请访问上述连接.
+# 本文已转移到 [http://js.walfud.com/js-proto/](http://js.walfud.com/js-proto/), 以后此地址不再更新, 请访问上述连接.
 
 本文不是基础教程, 如果对原型的基础概念还不理解, 请先看看 ref 中的链接.
 
