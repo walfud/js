@@ -3,7 +3,7 @@ title: 彻底搞懂 js prototype (本文已转移到 [http://js.walfud.com/js-pr
 tag:
   - js
   - 彻底搞懂
-date: 2016-09-23 00:00:00
+date: 2016-01-01 00:00:00
 ---
 
 # 本文已转移到 [http://js.walfud.com/js-prototype/](http://js.walfud.com/js-prototype/), 以后此地址不再更新, 请访问上述连接.
