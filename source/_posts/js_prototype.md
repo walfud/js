@@ -1,5 +1,5 @@
 ---
-title: 彻底搞懂 js prototype
+title: 彻底搞懂 js prototype (本文已转移到 [http://js.walfud.com/js-prototype/](http://js.walfud.com/js-prototype/)
 tag:
   - js
   - 彻底搞懂
