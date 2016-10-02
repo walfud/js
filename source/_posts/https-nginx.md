@@ -16,7 +16,7 @@ http 是不安全的, 源于:
 
 
 # https 工作原理
-![](images/https_nginx/stack.png)
+![](/images/https_nginx/stack.png)
 
 简单来说, 在左侧原始 http 的基础上, 右侧的 https 引入了一层 SSL, 在数据发送和接收的时候, 自动的进行加密/解密. 这样的加密数据在网络上传输, 即便被窃取到也不会有问题. 同时, 对于接收数据而言, 上层应用(http) 依然会收到被 SSL 层解析好的明文数据, 这对于已存在的 http 应用提供了 100% 的兼容性.
 
@@ -40,7 +40,7 @@ http 是不安全的, 源于:
 想要使用 https, 我们需要向 Let's Encript 证明你拥有该域名的控制权. 传统的证书申请机构是使用邮箱作为验证, 即: 发送一封邮件到你要签名的域名让你去确认. 而 Let's Encript 使用一种更加先进的方法, 叫做 [ACME](https://ietf-wg-acme.github.io/acme/). 这种方法的大致思路就是: 在你域名所指向的服务器上写入某些随机内容的文件, 如果发起 ACME 的服务器能够读成功, 就认为你拥有该域名的控制权. ACME 对比传统的邮件方式, 可以免去人工打开邮箱等过程, 从而实现自动化续签.
 
 1. 在你的 vps 上下载官方推荐的工具: [certbot](https://certbot.eff.org/). 这里我们选择 _Nginx_ 和 _Ubuntu 16.04 (xenial)_. 如图
-![](images/https_nginx/certbot.png)
+![](/images/https_nginx/certbot.png)
 2. 下面的 _automated_ 页面中, 介绍了具体执行的方法. 我直接给出命令:
 ```shell
 sudo apt-get install letsencrypt
