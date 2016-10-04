@@ -295,4 +295,5 @@ const Player = mongoose.model('Player', playerSchema);
 
 ### refs:
 * [Mongodb Reference Cards](http://info-mongodb-com.s3.amazonaws.com/ReferenceCards15-PDF.pdf)
+* [Node.js MongoDB Driver API](http://mongodb.github.io/node-mongodb-native/2.2/api/)
 * [Mongoosejs](http://mongoosejs.com/index.html)
