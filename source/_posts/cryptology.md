@@ -9,7 +9,7 @@ date: 2016/9/30
 简单来说, 任何一端生成一个密码, 发送给另一端. 此后两端通信使用都是用该密码进行加密解密.
 
 ### 存在的问题
-如图中 Sniffer 所做, 任何 Client 和 Server 间的数据都可以被窃取.
+如图中 Sniffer 所做, 任何 Client 和 Server 间的数据都可以被窃取. 包括图中 1 所做的: 交换对称秘钥. 一旦 Sniffer 获取了通信两端用于加密数据的对称秘钥, 那么后续的密文都可以被解密.
 
 ### 常见算法
 * [DES](https://en.wikipedia.org/wiki/Triple_DES)
