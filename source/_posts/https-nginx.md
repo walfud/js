@@ -37,7 +37,8 @@ http 是不安全的, 源于:
 * 一个域名(walfud.com), 这个域名已经指向了上述 vps
 
 ###### 申请证书
-想要使用 https, 我们需要向 Let's Encrypt 证明你拥有该域名的控制权. 传统的证书申请机构是使用邮箱作为验证, 即: 发送一封邮件到你要签名的域名让你去确认. 而 Let's Encrypt 使用一种更加先进的方法, 叫做 [ACME](https://ietf-wg-acme.github.io/acme/). 这种方法的大致思路就是: 在你域名所指向的服务器上写入某些随机内容的文件, 如果发起 ACME 的服务器能够读成功, 就认为你拥有该域名的控制权. ACME 对比传统的邮件方式, 可以免去人工打开邮箱等过程, 从而实现自动化续签.
+想要使用 https, 我们需要向 Let's Encrypt 证明你拥有该域名的控制权. 传统的证书申请机构是使用邮箱作为验证, 即: 发送一封邮件到你要签名的域名让你去确认. 而 Let's Encrypt 使用一种更加先进的方法, 叫做 [ACME](https://ietf-wg-acme.github.io/acme/). 这种方法的大致思路就是: 在你域名所指向的服务器上写入某些随机内容的文件, 如果发起 ACME 的服务器能够读成功, 就认为你拥有该域名的控制权. ACME 对比传统的邮件方式, 可以免去人工打开邮箱等过程, 从而实现自动化续签. 如图:
+![](/images/https_nginx/cert.png)
 
 1. 在你的 vps 上下载官方推荐的工具: [certbot](https://certbot.eff.org/). 这里我们选择 _Nginx_ 和 _Ubuntu 16.04 (xenial)_. 如图
 ![](/images/https_nginx/certbot.png)
