@@ -5,4 +5,4 @@ tag:
 date: 2016/10/27
 ---
 
-{% link text url [https://zhuanlan.zhihu.com/p/22989691] [JavaScript世界万物诞生记] %}
+{% link text https://zhuanlan.zhihu.com/p/22989691 [https://zhuanlan.zhihu.com/p/22989691] [JavaScript世界万物诞生记] %}
