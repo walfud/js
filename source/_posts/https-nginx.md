@@ -163,10 +163,6 @@ A: 是针对域名签发的. 我曾经在 123.206.49.60 这台机器上申请了
 
 
 # Refs
-[对称密码与公钥密码](http://js.walfud.com/cryptology)
-
-[密码学 ABC](http://android.walfud.com/%E5%AF%86%E7%A0%81%E5%AD%A6-abc/) (可惜配图没了, 但不影响阅读)
-
 [Let's Encrypt 给网站加 HTTPS 完全指南](https://ksmx.me/letsencrypt-ssl-https/)
 
 [在 Nginx 上使用 Let’s Encrypt 加密(HTTPS)你的网站](http://www.appinn.com/use-letsencrypt-with-nginx/)
@@ -184,3 +180,9 @@ A: 是针对域名签发的. 我曾经在 123.206.49.60 这台机器上申请了
 [How To Use Cron To Automate Tasks On a VPS](https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-on-a-vps)
 
 帮你生成 Nginx 配置的最佳实践: [Mozilla SSL Configuration Generator](https://mozilla.github.io/server-side-tls/ssl-config-generator/)
+
+[对称密码与公钥密码](http://js.walfud.com/cryptology)
+
+[密码学 ABC](http://android.walfud.com/%E5%AF%86%E7%A0%81%E5%AD%A6-abc/) (可惜配图没了, 但不影响阅读)
+
+[https 运行原理](http://www.jianshu.com/p/1429b12a5519)
