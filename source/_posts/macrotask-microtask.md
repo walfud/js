@@ -120,3 +120,4 @@ process.nextTick(function() {
 
 # ref
 [Promise的队列与setTimeout的队列有何关联？](https://www.zhihu.com/question/36972010)
+[Tasks, microtasks, queues and schedules(这里面有个 step by step 的程序帮助你理解, 非常赞!)](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
