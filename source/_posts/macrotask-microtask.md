@@ -97,7 +97,7 @@ for (macroTask of macroTaskQueue) {
     }
 }
 ```
-正如 [核心概念](#核心概念) 一开始所说的. '每个 Macro Task 结束后, 都要清空所有的 Micro Task'. 引擎会遍历 Macro Task Queue, 对于每个 Macrotask 执行完毕后都要遍历执行 Tick Task Queue 的所有任务, 紧接着再遍历 Micro Task Queue 的所有任务. 
+所说的, '*每个 Macro Task 结束后, 都要清空所有的 Micro Task*'. 引擎会遍历 Macro Task Queue, 对于每个 Macrotask 执行完毕后都要遍历执行 Tick Task Queue 的所有任务, 紧接着再遍历 Micro Task Queue 的所有任务. (**这也解释了为什么 `nextTick` 会由于 `Promise` 执行**)
 
 现在我们回头来看 [问题](#问题是什么?) 中的代码(简化版):
 ```js
