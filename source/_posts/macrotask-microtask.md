@@ -41,7 +41,7 @@ process.nextTick(function() {
 
 # 核心概念
 ### js 引擎模型
-从宏观角度讲, js 的执行是单线程的. 所有的异步结果都是通过 "任务队列(Task Queue)" 来调度被调度. 消息队列中存放的是一个个的任务(Task). 规范中规定, Task 分为两大类, 分别是 Macro Task 和 Micro Task, 并且每个 Macro Task 结束后, 都要清空所有的 Micro Task. 这是什么意思呢? 我们后面会用图说明. 现在先来看看规范怎么做的分类.
+从宏观角度讲, js 的执行是单线程的. 所有的异步结果都是通过 "任务队列(Task Queue)" 来调度被调度. 消息队列中存放的是一个个的任务(Task). 规范中规定, **Task 分为两大类, 分别是 Macro Task 和 Micro Task**, 并且**每个 Macro Task 结束后, 都要清空所有的 Micro Task**. 这是什么意思呢? 我们后面会用图说明. 现在先来看看规范怎么做的分类.
 
 ### Task 分类
 * Macrotask 包括: 
