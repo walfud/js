@@ -54,6 +54,7 @@ process.nextTick(function() {
   * `Object.observe`
   * `MutaionObserver`
 
+我们用一段代码说明一下:
 ```js
 setTimeout(function() {
     // Task 2
