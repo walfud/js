@@ -66,6 +66,7 @@ process.nextTick(function() {
     ...
 });
 ```
+上述代码在引擎中效果如下:
 ![](/images/macrotask-microtask/macro_micro.png)
 
 宏观上讲, Macrotask 会进入 Macro Task Queue, Microtask 会进入 Micro Task Queue. 
