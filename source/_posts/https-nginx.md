@@ -44,12 +44,13 @@ http 是不安全的, 源于:
 ![](/images/https_nginx/certbot.png)
 2. 下面的 _automated_ 页面中, 介绍了具体执行的方法. 我直接给出命令:
 ```shell
-sudo apt-get install letsencrypt
-letsencrypt certonly --agree-tos --email walfud@aliyun.com --webroot -w /usr/share/nginx/html -d walfud.com
+wget https://dl.eff.org/certbot-auto
+chmod a+x certbot-auto
+./certbot-auto certonly --agree-tos --email hi@walfud.com --webroot -w /usr/share/nginx/html -d walfud.com
 ```
 其中,
-  * `sudo apt-get install letsencrypt` 过程中, 可能 _install python..._ 这一步会卡很久, 请耐心等待, 它真的是很慢而已...
-  * `walfud@aliyun.com` **替换为你的 email !!!**
+  * 第一次运行的话, 可能 _install python..._ 这一步会卡很久, 请耐心等待, 它真的是很慢而已...
+  * `hi@walfud.com` **替换为你的 email !!!**
   * `/usr/share/nginx/html` 是 _ACME Challenge_ 的路径(看后面的 [术语](#term))
   * `walfud.com` 这就是你要申请的域名. **这个域名一定要指向你的这台 vps!!!** (先 ping 一下看看结果是不是你主机的 ip)
 3. 成功会出现: _Congratulations! Your certificate and chain have been saved at..._, 如图:
