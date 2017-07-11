@@ -46,7 +46,7 @@ http 是不安全的, 源于:
 ```shell
 wget https://dl.eff.org/certbot-auto
 chmod a+x certbot-auto
-./certbot-auto certonly --agree-tos --email hi@walfud.com --webroot -w /usr/share/nginx/html -d walfud.com
+./certbot-auto --nginx --agree-tos --email hi@walfud.com -d walfud.com
 ```
 其中,
   * 第一次运行的话, 可能 _install python..._ 这一步会卡很久, 请耐心等待, 它真的是很慢而已...
