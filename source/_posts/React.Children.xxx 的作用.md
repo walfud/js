@@ -7,7 +7,7 @@ date: 2017/11/2
 
 我们在编写 React 的时候, 经常会遇到 `React.Children.map(...)` 这种写法. 然而 js 中明明有对等的函数, 如下:
 * `React.Children.map(this.props.children, ...)` <=> `this.props.children.map(...)`
-* `React.Children.map(this.props.children, ...)` <=> `this.props.children.forEach(...)`
+* `React.Children.forEach(this.props.children, ...)` <=> `this.props.children.forEach(...)`
 * `React.Children.count(this.props.children)` <=> `this.props.children.length`
 那么为什么还会有 `React.Children.xxx` 呢?
 
