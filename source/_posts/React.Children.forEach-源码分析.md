@@ -17,6 +17,7 @@ date: 2017/11/15
             - [处理单个 child](#处理单个-child)
             - [处理 children (集合)](#处理-children-集合)
     - [releaseTraverseContext](#releasetraversecontext)
+    - [回顾](#回顾)
 - [总结](#总结)
 - [Refs](#refs)
 
@@ -191,6 +192,7 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 | ~~Symbol~~ | "symbol"| |
 | ~~函数对象~~ | "function"| |
 | ~~任何其他对象~~ | "object"| |
+
 *注*: 红色部分是当前被处理的类型
 
 这个分支处理了大部分类型. 这里的 children 实际上是单个对象, 并不是像它的名字一样是个复数. 接下来执行 `callback(traverseContext, children, nameSoFar === '' ? SEPARATOR + getComponentKey(children, 0) : nameSoFar)` 并返回 1.
@@ -289,6 +291,25 @@ function releaseTraverseContext(traverseContext) {
 ```
 
 这个方法简单的不能再简单, 核心目的就是 `if` 里面的那块代码, 如果池数量小于 `POOL_SIZE`(上文中得知这个数字是 10), 则把对象放回到池中, 以备后续使用.
+
+## 回顾
+至此, `React.Children.forEach` 就分析完了. 回过头来看看:
+```js
+function forEachChildren(children, forEachFunc, forEachContext) {
+  
+  // !! 将 *处理函数* 和 *上下文* 封装成一个对象(`traverseContext`) !!
+  var traverseContext = getPooledTraverseContext(null, null, forEachFunc, forEachContext);
+
+  // !! 深度遍历子元素, 并调用 *处理函数* !!
+  traverseAllChildren(children, forEachSingleChild, traverseContext);
+
+  // !! 释放封装了 *处理函数* 和 *上下文* 的对象 !!
+  releaseTraverseContext(traverseContext);
+
+}
+```
+
+这三步, 是不是很简单?
 
 # 总结
 我们回顾一下 `React.Children.forEach` 能够处理的类型:
