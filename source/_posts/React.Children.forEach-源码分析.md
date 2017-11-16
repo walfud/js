@@ -5,6 +5,22 @@ tag:
 date: 2017/11/15
 ---
 
+<!-- TOC -->
+
+- [追根溯源](#追根溯源)
+- [框架分析](#框架分析)
+- [细节源码](#细节源码)
+    - [`getPooledTraverseContext`](#getpooledtraversecontext)
+    - [`traverseAllChildren`](#traverseallchildren)
+        - [绑定上下文调用处理函数](#绑定上下文调用处理函数)
+        - [递归遍历](#递归遍历)
+            - [处理单个 child](#处理单个-child)
+            - [处理 children (集合)](#处理-children-集合)
+- [总结](#总结)
+- [Refs](#refs)
+
+<!-- /TOC -->
+
 关于为什么会有 `React.Children.forEach` 而不直接用 `this.props.forEach` 的问题, 我在 [React.Children.xxx 的作用](http://js.walfud.com/React.Children.xxx%20%E7%9A%84%E4%BD%9C%E7%94%A8/) 已经说得很明白了. 本文我们要更进一步, 分析一下 `React.Children` 的实现, 从而更好的理解 react 背后的故事. Let's go.
 
 # 追根溯源
@@ -163,8 +179,9 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 }
 ```
 `typeof` 操作符一共能有几种返回值? 来看看:
+
 | 类型        | 返回值           |   备注   |
-| ------------- |-------------|-----|
+| ------------- | ------------- | ----- |
 | <font color=red>Undefined</font> | "undefined"| 
 | Null | "object"| 实际上是被 `traverseAllChildren` 在入口被处理了 |
 | <font color=red>Boolean</font> | "boolean"|
@@ -258,19 +275,27 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 
 # 总结
 我们回顾一下 `React.Children.forEach` 能够处理的类型:
-| 类型        | 返回值           |   备注   |
+
 | ------------- |-------------|-----|
-| Undefined | "undefined"| 
+
 | Null | "object"| 被 `traverseAllChildren` 在入口被处理 |
-| Boolean | "boolean"|
-| Number | "number"|
-| String | "string"|
-| ~~Symbol~~ | "symbol"|
-| ~~函数对象~~ | "function"|
-| 可迭代对象 | "object"|
-| ~~其他对象~~ | "object"|
+
+| Number | "number"| |
+| String | "string"| |
+| ~~Symbol~~ | "symbol"| |
+| ~~函数对象~~ | "function"| |
+| 可迭代对象 | "object"| |
+| ~~其他对象~~ | "object"| |
 
 总的来说, `React.Children.forEach` 是通过 `typeof` 操作符, 对 children 进行判断, 进行深度遍历后完成了任务.
 
 # Refs
 [React.Children.xxx 的作用](http://js.walfud.com/React.Children.xxx%20%E7%9A%84%E4%BD%9C%E7%94%A8/)
+
+
+| 类型        | 返回值           |   备注   |
+|:-------------:|:-------------:|:-----:|
+| Undefined | "undefined"||
+| Boolean | "boolean"| |
+|col2is|centered|12 |
+| zebra stripes | are neat | $1 |
