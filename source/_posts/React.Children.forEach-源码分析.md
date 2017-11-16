@@ -10,13 +10,13 @@ date: 2017/11/15
 - [追根溯源](#追根溯源)
 - [框架分析](#框架分析)
 - [细节源码](#细节源码)
-    - [`getPooledTraverseContext`](#getpooledtraversecontext)
-    - [`traverseAllChildren`](#traverseallchildren)
+    - [getPooledTraverseContext](#getpooledtraversecontext)
+    - [traverseAllChildren](#traverseallchildren)
         - [绑定上下文调用处理函数](#绑定上下文调用处理函数)
         - [递归遍历](#递归遍历)
             - [处理单个 child](#处理单个-child)
             - [处理 children (集合)](#处理-children-集合)
-    - [`releaseTraverseContext`](#releasetraversecontext)
+    - [releaseTraverseContext](#releasetraversecontext)
 - [总结](#总结)
 - [Refs](#refs)
 
@@ -81,7 +81,7 @@ function forEachChildren(children, forEachFunc, forEachContext) {
 # 细节源码
 下面, 我们进入重点, 来看一看其中的实现原理
 
-## `getPooledTraverseContext`
+## getPooledTraverseContext
 ```js
 var POOL_SIZE = 10;
 var traverseContextPool = [];
@@ -111,7 +111,7 @@ function getPooledTraverseContext(mapResult, keyPrefix, mapFunction, mapContext)
 * func: 这就是用户传入的 *forEach 处理函数*
 * context: 这是个可选参数, 用户可以传入作为调用上述 `func` 时的上下文. 看到这里你就知道, 默认情况下, 你的 **处理函数执行的时候, 是没有 context, 也就是处理函数中, this === undefined**. 如果想在 *处理函数中绑定 this*, 只能通过这个参数指定. 这一点在后面分析 `forEachSingleChild` 会看到原理
 
-## `traverseAllChildren`
+## traverseAllChildren
 这是我们最重要的函数, 我们来回顾一下他的参数:
 ```js
 function forEachChildren(children, forEachFunc, forEachContext) {
@@ -274,7 +274,7 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 
 看代码中的注释, 应该很清楚的明白 `React.Children.forEach` 是不支持 `Map` 但却支持 `Set` 的. 
 
-## `releaseTraverseContext`
+## releaseTraverseContext
 ```js
 function releaseTraverseContext(traverseContext) {
   traverseContext.result = null;
