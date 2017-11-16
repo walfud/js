@@ -181,15 +181,15 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 `typeof` 操作符一共能有几种返回值? 来看看:
 
 | 类型        | 返回值           |   备注   |
-| ------------- | ------------- | ----- |
-| <font color=red>Undefined</font> | "undefined"| 
+| ------------- |-------------|-----|
+| <font color=red>Undefined</font> | "undefined"| |
 | Null | "object"| 实际上是被 `traverseAllChildren` 在入口被处理了 |
-| <font color=red>Boolean</font> | "boolean"|
-| <font color=red>Number</font> | "number"|
-| <font color=red>String</font> | "string"|
-| ~~Symbol~~ | "symbol"|
-| ~~函数对象~~ | "function"|
-| ~~任何其他对象~~ | "object"|
+| <font color=red>Boolean</font> | "boolean"| |
+| <font color=red>Number</font> | "number"| |
+| <font color=red>String</font> | "string"| |
+| ~~Symbol~~ | "symbol"| |
+| ~~函数对象~~ | "function"| |
+| ~~任何其他对象~~ | "object"| |
 *注*: 红色部分是当前被处理的类型
 
 这个分支处理了大部分类型. 这里的 children 实际上是单个对象, 并不是像它的名字一样是个复数. 接下来执行 `callback(traverseContext, children, nameSoFar === '' ? SEPARATOR + getComponentKey(children, 0) : nameSoFar)` 并返回 1.
@@ -276,10 +276,11 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 # 总结
 我们回顾一下 `React.Children.forEach` 能够处理的类型:
 
+| 类型        | 返回值           |   备注   |
 | ------------- |-------------|-----|
-
+| Undefined | "undefined"| |
 | Null | "object"| 被 `traverseAllChildren` 在入口被处理 |
-
+| Boolean | "boolean"| |
 | Number | "number"| |
 | String | "string"| |
 | ~~Symbol~~ | "symbol"| |
@@ -291,11 +292,3 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 
 # Refs
 [React.Children.xxx 的作用](http://js.walfud.com/React.Children.xxx%20%E7%9A%84%E4%BD%9C%E7%94%A8/)
-
-
-| 类型        | 返回值           |   备注   |
-|:-------------:|:-------------:|:-----:|
-| Undefined | "undefined"||
-| Boolean | "boolean"| |
-|col2is|centered|12 |
-| zebra stripes | are neat | $1 |
