@@ -16,6 +16,7 @@ date: 2017/11/15
         - [递归遍历](#递归遍历)
             - [处理单个 child](#处理单个-child)
             - [处理 children (集合)](#处理-children-集合)
+    - [`releaseTraverseContext`](#releasetraversecontext)
 - [总结](#总结)
 - [Refs](#refs)
 
@@ -272,6 +273,22 @@ function traverseAllChildrenImpl(children, nameSoFar, callback, traverseContext)
 ```
 
 看代码中的注释, 应该很清楚的明白 `React.Children.forEach` 是不支持 `Map` 但却支持 `Set` 的. 
+
+## `releaseTraverseContext`
+```js
+function releaseTraverseContext(traverseContext) {
+  traverseContext.result = null;
+  traverseContext.keyPrefix = null;
+  traverseContext.func = null;
+  traverseContext.context = null;
+  traverseContext.count = 0;
+  if (traverseContextPool.length < POOL_SIZE) {
+    traverseContextPool.push(traverseContext);
+  }
+}
+```
+
+这个方法简单的不能再简单, 核心目的就是 `if` 里面的那块代码, 如果池数量小于 `POOL_SIZE`(上文中得知这个数字是 10), 则把对象放回到池中, 以备后续使用.
 
 # 总结
 我们回顾一下 `React.Children.forEach` 能够处理的类型:
