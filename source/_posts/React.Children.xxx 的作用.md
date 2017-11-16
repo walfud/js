@@ -34,4 +34,4 @@ date: 2017/11/2
 
 # refs
 [A deep dive into children in React](https://mxstbr.blog/2017/02/react-children-deepdive/)
-[React.Children.forEach 源码分析](http://js.walfud.com/React.Children.xxx%20%E7%9A%84%E4%BD%9C%E7%94%A8/)
+[React.Children.forEach 源码分析](http://js.walfud.com/React.Children.forEach-%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/)
