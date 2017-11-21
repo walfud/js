@@ -1,8 +1,8 @@
 ---
 title: Index as a key is an anti-pattern
 tag:
-  - js
-date: 2017/10/25
+  - react
+date: 2017/11/21
 ---
 
 总结一句话就是: 不要使用数组的 index 作为 key. 这会引发 unpredictable results.
