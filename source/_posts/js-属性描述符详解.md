@@ -115,7 +115,7 @@ Object.keys(foo).forEach((i) => console.log(i))
 
 ### 与 enumerable 相关的 js 方法
 
-| | Object.keys() | Object.hasOwnProperty() | for..in | in |
+| | Object.keys() 函数 | Object.hasOwnProperty() 函数 | for..in 表达式 | in 操作符 |
 |:-:|:-:|:-:|:-:|:-:|
 | 自身属性, 可枚举 | true | true | true | true |
 | 自身属性, 不可枚举 | false | true | false | true |
