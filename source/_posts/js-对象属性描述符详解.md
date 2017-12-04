@@ -1,5 +1,5 @@
 ---
-title: js 属性描述符详解
+title: js 对象属性描述符详解
 tag:
   - js
 date: 2017/11/27
