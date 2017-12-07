@@ -105,8 +105,8 @@ console.log(Object.isSeal(baz))  // true
 # 总结
 禁止扩展 ⊆ 密封 ⊆ 冻结
 
-| . | 增加新属性 | 修改属性的值 (value) | 修改属性描述符 writable | 修改属性描述符 configurable | 修改属性描述符 enumerable |
-|: - | - | - | - | - | - |
-| 禁止扩展 (Object.preventExtensions) | × | | | | |
-| 密封 (Object.seal) | × | | × (writable 可以由 true -> false) | × | × |
-| 冻结 (Object.freeze) | × | × | × | × | × |
+|         | 增加新属性 | 属性描述符 configurable | 属性描述符 writable | 属性描述符 enumerable | 属性的值 (value) |
+|-|:-:|:-:|:-:|:-:|:-:|
+| 禁止扩展 (Object.preventExtensions) | 不可以 | - | - | - | - |
+| 密封 (Object.seal) | 不可以 | false | - | - | - |
+| 冻结 (Object.freeze) | 不可以 | false | false | - | - |
