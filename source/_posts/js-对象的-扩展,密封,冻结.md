@@ -103,7 +103,7 @@ console.log(Object.isSeal(baz))  // true
 * [Object.isFrozen](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/isFrozen)
 
 # 总结
-*禁止扩展* ⊆ *密封* ⊆ *冻结*
+禁止扩展 ⊆ 密封 ⊆ 冻结
 
 | . | 增加新属性 | 修改属性的值 (value) | 修改属性描述符 writable | 修改属性描述符 configurable | 修改属性描述符 enumerable |
 |: - | - | - | - | - | - |
