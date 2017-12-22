@@ -3,7 +3,10 @@ title: books
 date: 2016-08-11 14:09:38
 ---
 
-### 深入浅出React和Redux (实战) 
+### Git Pro 第二版   2017/12 - 
+官方出品, 言简意赅. Git 看着一本就够了, 比其他 Git 书籍要好.
+
+### 深入浅出React和Redux (实战)    2017/12 - 2017/12
 很适合入门的一本书. 语言流畅易懂. 适合稍微有一点儿 react 基础的人. 详细的介绍了 redux, react-redux, react-thunk 等常用技术的原理. 
 
 
