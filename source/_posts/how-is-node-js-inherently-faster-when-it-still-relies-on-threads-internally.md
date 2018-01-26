@@ -2,7 +2,7 @@
 title: 为何 node 底层同样使用多线程却依然比传统多线程快?
 tag:
   - js
-date: 2017/02/23
+date: 2018/01/26
 ---
 
 [为何 node 底层同样使用多线程却依然比传统多线程快?](https://stackoverflow.com/questions/3629784/how-is-node-js-inherently-faster-when-it-still-relies-on-threads-internally)
